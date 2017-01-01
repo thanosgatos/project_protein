@@ -1,0 +1,26 @@
+---
+title: "Performing sanity checks on annotation_table"
+output: html_notebook
+---
+
+Let's have a look at our annotation_table and run some sanity checks on it.
+
+Frsit thing we want to do is load in the table itself, as well as the tidyverse package.
+
+Here we need to be careful with the relative path: R notebooks run with the directory they are in as their working directory, and, therefore, we need to use ".." in the beginning of our paths, in order to find ourselves once again in our regular working directory for the project.
+
+```{r}
+library(tidyverse)
+
+# Beware of the working directory
+load("../data_processed/annotation_table.RData")
+annotation_table <- as_tibble(annotation_table)
+```
+
+The first check  we want to do is to see whether there are any NAs in our table - there shouldn't be any in some of our columns. 
+
+```{r}
+na_count <- colSums(is.na(annotation_table))
+na_count
+```
+
