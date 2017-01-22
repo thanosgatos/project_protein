@@ -136,6 +136,6 @@ read_grow <- function(path, file_type) {
     "distance"
   )]
 
-  #Return the data frame created
+  # Return the data frame created
   grow
 }
